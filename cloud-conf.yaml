@@ -1,0 +1,18 @@
+#cloud-config
+
+users:
+  - name: v3ll
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILXKb6DzFppX6hFVxRJm0S2/8vh89Y4xml7XzEMUkxta root@MRN-Server
+
+package_update: true
+package_upgrade: true
+packages:
+  - docker
+
+runcmd:
+  - systemctl enable docker
+  - systemctl start docker  
